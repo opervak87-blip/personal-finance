@@ -69,3 +69,29 @@ DELETE http://localhost:8080/api/transactions/1
 
 ### 6. Try to get the deleted transaction
 GET http://localhost:8080/api/transactions/1
+
+### Register a new user
+POST http://localhost:8080/api/users/register
+Content-Type: application/json
+
+{
+  "email": "aksana@example.com",
+  "password": "MySecurePassword123"
+}
+### Test: invalid email
+POST http://localhost:8080/api/users/register
+Content-Type: application/json
+
+{
+  "email": "not-an-email",
+  "password": "MySecurePassword123"
+}
+
+### Test: password too short
+POST http://localhost:8080/api/users/register
+Content-Type: application/json
+
+{
+  "email": "shortpassword@example.com",
+  "password": "short"
+}

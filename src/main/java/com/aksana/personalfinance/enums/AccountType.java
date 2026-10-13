@@ -1,4 +1,4 @@
-package com.aksana.personalfinance.entity;
+package com.aksana.personalfinance.enums;
 
 public enum AccountType {
     CHEQUING,

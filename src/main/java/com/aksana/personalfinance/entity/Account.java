@@ -1,6 +1,7 @@
 package com.aksana.personalfinance.entity;
 
 
+import com.aksana.personalfinance.enums.AccountType;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;

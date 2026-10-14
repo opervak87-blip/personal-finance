@@ -1,9 +1,8 @@
-package com.aksana.personalfinance;
+package com.aksana.personalfinance.service;
 
 import com.aksana.personalfinance.entity.User;
 import com.aksana.personalfinance.exception.DuplicateEmailException;
 import com.aksana.personalfinance.repository.UserRepository;
-import com.aksana.personalfinance.service.UserService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;

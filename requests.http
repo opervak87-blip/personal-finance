@@ -95,3 +95,34 @@ Content-Type: application/json
   "email": "shortpassword@example.com",
   "password": "short"
 }
+###
+POST http://localhost:8080/api/users/register
+Content-Type: application/json
+
+{
+  "email": "testuser@example.com",
+  "password": "MySecurePassword123"
+}
+
+### Access accounts using registered credentials
+GET http://localhost:8080/api/accounts
+Authorization: Basic dGVzdHVzZXJAZXhhbXBsZS5jb206TXlTZWN1cmVQYXNzd29yZDEyMw==
+
+### Get all accounts for a user
+GET http://localhost:8080/api/accounts/user/1
+Accept: application/json
+
+### Create a chequing account
+POST http://localhost:8080/api/accounts
+Authorization: Basic dGVzdHVzZXJAZXhhbXBsZS5jb206TXlTZWN1cmVQYXNzd29yZDEyMw==
+Content-Type: application/json
+
+{
+  "name": "Main Chequing",
+  "accountType": "CHEQUING",
+  "currencyCode": "CAD",
+  "openingBalance": 1250.00
+}
+### Get my accounts
+GET http://localhost:8080/api/accounts
+Authorization: Basic dGVzdHVzZXJAZXhhbXBsZS5jb206TXlTZWN1cmVQYXNzd29yZDEyMw==

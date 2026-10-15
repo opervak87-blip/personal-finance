@@ -6,6 +6,10 @@ on:
   pull_request:
     branches: [main]
 
+permissions:
+  contents: read
+  packages: write
+
 jobs:
   build-and-test:
     runs-on: ubuntu-24.04
@@ -26,3 +30,19 @@ jobs:
 
       - name: Build Docker image
         run: docker build -t personal-finance-api:ci .
+
+      - name: Log in to GitHub Container Registry
+        if: github.event_name == 'push'
+        uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Build and push image
+        if: github.event_name == 'push'
+        uses: docker/build-push-action@v6
+        with:
+          context: .
+          push: true
+          tags: ghcr.io/opervak87-blip/personal-finance:latest
